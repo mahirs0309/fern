@@ -1,0 +1,347 @@
+/* Plant Store API Custom Styling */
+
+/* Custom font for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', serif;
+  color: #174128;
+}
+
+/* Custom styling for code blocks */
+pre {
+  border-radius: 8px;
+  border-left: 4px solid #174128;
+}
+
+/* Card styling */
+div[class*="Card-module"] {
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+div[class*="Card-module"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styling for tables */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background-color: rgba(23, 65, 40, 0.1);
+  color: #174128;
+  font-weight: 600;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(23, 65, 40, 0.1);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Custom styling for callouts */
+div[class*="Callout-module"] {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+/* Specific styling ONLY for the View API Reference button on the home page */
+.home-page a.Button-module_button[href*="/api"],
+.home-page a[class*="Button"][href*="/api"],
+.home-page a[href*="api-reference"] {
+  background-color: rgba(23, 65, 40, 0.15) !important;
+  color: #174128 !important;
+  border-color: transparent !important;
+  transition: background-color 0.2s ease-in-out !important;
+}
+
+.home-page a.Button-module_button[href*="/api"]:hover,
+.home-page a[class*="Button"][href*="/api"]:hover,
+.home-page a[href*="api-reference"]:hover {
+  background-color: rgba(23, 65, 40, 0.25) !important;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Logo styling and positioning */
+header a:first-child,
+.navbar-logo a {
+  cursor: pointer !important;
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+/* Unified logo sizing */
+header img,
+header a img,
+nav img,
+.navbar img,
+.navbar-logo img,
+.header-logo img,
+a[href="/"] img,
+[aria-label="home"] img,
+[class*="logo"] img,
+[class*="Logo"] img,
+[data-testid*="logo"] img,
+img[width="32"],
+img[height="32"],
+img[alt*="logo"],
+img[alt*="Logo"],
+div[class*="logo"] img,
+div[class*="Logo"] img,
+header a:first-child img {
+  width: 60px !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  transform: none !important;
+}
+
+/* Logo container styling */
+.navbar-logo,
+.header-logo,
+header a:first-child,
+div[class*="logo"],
+div[class*="Logo"],
+[data-testid*="logo"],
+a[href="/"],
+[aria-label="home"] {
+  width: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Correct logo linking behavior */
+header a:has(img),
+.navbar-logo a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  /* Force it to properly go to the homepage */
+  href: "/" !important;
+}
+
+/* Header title styling */
+header a[title="Houseplant Haven API"] span {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+}
+
+/* LIGHT MODE STYLES */
+:root:not(.dark) {
+  /* Common light mode variables */
+  --translucent-bg: rgba(23, 65, 40, 0.15);
+  --translucent-hover: rgba(23, 65, 40, 0.25);
+  --text-color: #174128;
+  --solid-bg: #174128;
+  --border-color: transparent;
+  
+  /* Navigation & API elements */
+  [data-testid="sidebar-navigation"] [data-testid="api-groups-list"] button,
+  [data-test-id="nav-group-button"],
+  [data-testid="api-item"],
+  .api-section button,
+  .sidebar-subitem,
+  nav[role="navigation"] a,
+  nav[role="navigation"] button,
+  header nav a,
+  header nav button,
+  [data-section-type="api"] button,
+  .api-item button,
+  .api-root-item button,
+  [role="tab"],
+  [role="button"],
+  button[type="button"],
+  .DocSearch-Button,
+  button[aria-label*="Copy"],
+  .search-container,
+  .search-container input,
+  .copy-button,
+  .copy-icon-container,
+  [data-testid="openapi-nav-group-button"],
+  .api-nav-button,
+  div[data-section-type="api"] > button,
+  .nav-item,
+  .sidebar-item,
+  header button,
+  #fern-header button,
+  aside button,
+  button,
+  a[role="button"],
+  [type="button"] {
+    background-color: var(--translucent-bg) !important;
+    color: var(--text-color) !important;
+    border: none !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  /* Hover states for all interactive elements */
+  button:hover,
+  [role="button"]:hover,
+  nav a:hover,
+  [data-section-type="api"] button:hover {
+    background-color: var(--translucent-hover) !important;
+  }
+  
+  /* Action button styling exception */
+  .content-container button:not([aria-label*="Copy"]),
+  button[type="submit"] {
+    background-color: var(--solid-bg) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Pagination styling */
+  .pagination-nav__link,
+  .pagination-nav a,
+  a.pagination-nav__link,
+  div.pagination-nav__link,
+  [class*="pagination"],
+  [class*="Pagination"] {
+    background-color: white !important;
+    color: var(--text-color) !important;
+  }
+}
+
+/* DARK MODE STYLES */
+:root.dark {
+  /* Common dark mode variables */
+  --translucent-bg: rgba(91, 185, 140, 0.2);
+  --translucent-hover: rgba(91, 185, 140, 0.3);
+  --text-color: #5bb98c;
+  --solid-bg: #5bb98c;
+  --border-color: transparent;
+  --dark-bg: #1e1e1e;
+  --light-text: #5bb98c;
+  --muted-text: #e0e0e0;
+  
+  /* Heading colors for dark mode */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--light-text) !important;
+  }
+  
+  /* Code block styling for dark mode */
+  pre {
+    border-left: 4px solid var(--text-color) !important;
+    background-color: rgba(91, 185, 140, 0.1) !important;
+  }
+  
+  /* Table styling for dark mode */
+  th {
+    background-color: var(--translucent-bg) !important;
+    color: var(--text-color) !important;
+  }
+  
+  td {
+    color: var(--muted-text) !important;
+  }
+  
+  /* Navigation & API elements in dark mode */
+  [data-testid="sidebar-navigation"] [data-testid="api-groups-list"] button,
+  [data-test-id="nav-group-button"],
+  [data-testid="api-item"],
+  .api-section button,
+  .sidebar-subitem,
+  nav[role="navigation"] a,
+  nav[role="navigation"] button,
+  header nav a,
+  header nav button,
+  [data-section-type="api"] button,
+  .api-item button,
+  .api-root-item button,
+  [role="tab"],
+  [role="button"],
+  button[type="button"],
+  .DocSearch-Button,
+  button[aria-label*="Copy"],
+  .search-container,
+  .search-container input,
+  .copy-button,
+  .copy-icon-container,
+  [data-testid="openapi-nav-group-button"],
+  .api-nav-button,
+  div[data-section-type="api"] > button,
+  .nav-item,
+  .sidebar-item,
+  header button,
+  #fern-header button,
+  aside button,
+  button,
+  a[role="button"],
+  [type="button"] {
+    background-color: var(--translucent-bg) !important;
+    color: var(--text-color) !important;
+    border: none !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  /* Hover states for all interactive elements in dark mode */
+  button:hover,
+  [role="button"]:hover,
+  nav a:hover,
+  [data-section-type="api"] button:hover {
+    background-color: var(--translucent-hover) !important;
+  }
+  
+  /* Action button styling exception for dark mode */
+  .content-container button:not([aria-label*="Copy"]),
+  button[type="submit"] {
+    background-color: var(--solid-bg) !important;
+    color: #121212 !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Pagination styling for dark mode */
+  .pagination-nav__link,
+  .pagination-nav a,
+  a.pagination-nav__link,
+  div.pagination-nav__link,
+  [class*="pagination"],
+  [class*="Pagination"] {
+    background-color: var(--dark-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--translucent-bg) !important;
+  }
+  
+  /* View API Reference button in dark mode */
+  .home-page a.Button-module_button[href*="/api"],
+  .home-page a[class*="Button"][href*="/api"],
+  .home-page a[href*="api-reference"] {
+    background-color: var(--translucent-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  .home-page a.Button-module_button[href*="/api"]:hover,
+  .home-page a[class*="Button"][href*="/api"]:hover,
+  .home-page a[href*="api-reference"]:hover {
+    background-color: var(--translucent-hover) !important;
+  }
+} 

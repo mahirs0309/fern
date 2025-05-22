@@ -1,0 +1,149 @@
+---
+title: Houseplant Haven API
+description: The ultimate API for managing your plant inventory and orders
+---
+
+# Welcome to Houseplant Haven
+
+Our robust API allows you to manage your plant inventory, process orders, and handle user authentication with ease.
+
+<Card 
+  title="Getting Started" 
+  icon="fa-solid fa-seedling"
+>
+  Get up and running with the Plant Store API in minutes.
+  
+  Read about [Authentication](#authentication) and check our [API Reference](/api-reference).
+</Card>
+
+## Key Features
+
+<Tabs>
+  <Tab title="Plant Management">
+    Our API provides comprehensive endpoints for managing your plant inventory:
+    
+    - Add new plants with detailed attributes
+    - Update existing plant information
+    - Search plants by status and tags
+    - Get detailed plant information
+    
+    ```json
+    // Example: Adding a new plant
+    POST /plant
+    {
+      "name": "Boston Fern",
+      "category": "Indoor",
+      "tags": ["air-purifying", "shade-loving"],
+      "status": "available"
+    }
+    ```
+    
+    **Possible Error Codes:**
+    - `400` - Invalid input (missing required fields or invalid values)
+    - `401` - Unauthorized (missing or invalid API key)
+    - `409` - Conflict (plant with same name already exists)
+    - `500` - Server error
+  </Tab>
+  
+  <Tab title="Order Processing">
+    Process and track orders seamlessly:
+    
+    - Create new orders
+    - Update order status
+    - Retrieve order history
+    - Process returns
+    
+    ```json
+    // Example: Creating a new order
+    POST /store/order
+    {
+      "plantId": 101,
+      "quantity": 2,
+      "shipDate": "2023-06-15T14:30Z",
+      "status": "placed"
+    }
+    ```
+    
+    **Possible Error Codes:**
+    - `400` - Invalid input (missing required fields or invalid values)
+    - `401` - Unauthorized (missing or invalid API key)
+    - `404` - Plant not found (invalid plantId)
+    - `422` - Insufficient inventory
+    - `500` - Server error
+  </Tab>
+  
+  <Tab title="User Management">
+    Manage your users and authentication:
+    
+    - User registration
+    - Login and logout
+    - Profile management
+    - Password reset
+    
+    ```json
+    // Example: User login
+    POST /user/login
+    {
+      "username": "plant_lover",
+      "password": "secure_password"
+    }
+    ```
+    
+    **Possible Error Codes:**
+    - `400` - Invalid input (missing required fields)
+    - `401` - Invalid credentials
+    - `403` - Account locked or disabled
+    - `429` - Too many attempts (rate limit exceeded)
+    - `500` - Server error
+  </Tab>
+</Tabs>
+
+<a id="authentication"></a>
+## Authentication
+
+<Callout type="info">
+  The Plant Store API uses API keys for store operations and OAuth2 for plant-specific endpoints.
+</Callout>
+
+### API Key Authentication
+
+For store operations, include your API key in the request header:
+
+```
+X-API-Key: your_api_key_here
+```
+
+### OAuth2 Authentication
+
+For plant-specific operations, use the OAuth2 flow:
+
+<Steps>
+  <Step title="Register your application">
+    Contact our support team to register your application and receive client credentials.
+  </Step>
+  <Step title="Request an access token">
+    Make a POST request to `/oauth/token` with your client credentials.
+  </Step>
+  <Step title="Use the token">
+    Include the access token in your request header:
+    
+    `Authorization: Bearer your_access_token`
+  </Step>
+</Steps>
+
+## Rate Limiting
+
+To ensure fair usage, our API implements rate limiting:
+
+| Plan | Rate Limit | Burst Limit |
+| ---- | ---------- | ----------- |
+| Free | 100 requests/hour | 25 requests/minute |
+| Basic | 1,000 requests/hour | 100 requests/minute |
+| Premium | 10,000 requests/hour | 500 requests/minute |
+
+<a id="api-reference"></a>
+## API Reference
+
+Explore our complete API documentation for detailed information on all available endpoints, request formats, and response structures.
+
+<Button href="/api-reference">View API Reference</Button> 

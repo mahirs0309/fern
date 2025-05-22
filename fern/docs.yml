@@ -1,0 +1,22 @@
+instances:
+  - url: mahir-singh-demo-site.docs.buildwithfern.com
+title: Houseplant Haven API
+navigation:
+  - page: Home
+    path: ./pages/home.mdx
+  - api: API Reference
+colors:
+  accent-primary: 
+    light: '#174128'
+    dark: '#5bb98c'
+  background: 
+    light: '#faf5e8'
+    dark: '#121212'
+favicon: ./images/favicon.ico
+logo:
+  light: ./images/logo.png
+  dark: ./images/logo.png
+css: ./custom.css
+js: ./custom.js
+experimental: 
+  openapi-parser-v3: true

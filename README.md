@@ -27,8 +27,8 @@ npm install -g fern-api
 2. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/plant-store-api-docs.git
-cd plant-store-api-docs
+git clone https://github.com/mahirs0309/fern.git
+cd fern
 ```
 
 ### Local Development

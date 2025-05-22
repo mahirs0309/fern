@@ -39,7 +39,7 @@ To run the documentation site locally:
 fern start
 ```
 
-This will start a local development server, typically at http://localhost:8000.
+This will start a local development server, typically at http://localhost:3000.
 
 ### Making Changes
 
